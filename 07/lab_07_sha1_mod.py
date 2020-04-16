@@ -66,19 +66,16 @@ class Sha1ModHash(object):
     digest_size = 20
     block_size = 64
 
-    ################################################################################
-    ########## CHANGES HERE ########################################################
-    ################################################################################
-    def __init__(self):
+    def __init__(self, alpha=0x67452301, beta=0xEFCDAB89, charlie=0x98BADCFE,
+                 delta=0x10325476, echo=0xC3D2E1F0):
         # Initial digest variables
         self._h = (
-            0x67452301,
-            0xEFCDAB89,
-            0x98BADCFE,
-            0x10325476,
-            0xC3D2E1F0,
+            alpha,
+            beta,
+            charlie,
+            delta,
+            echo,
         )
-    ################################################################################
         # bytes object with 0 <= len < 64 used to store the end of the message
         # if the message length is not congruent to 64
         self._unprocessed = b''
